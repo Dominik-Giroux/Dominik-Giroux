@@ -40,6 +40,8 @@ const newsletter = {
 };
 
 export default function Newsletter({ context }) {
+  console.log(context);
+
   return (
     <div className="bg-gradient-to-b from-purple-500 to-teal-500 md:bg-gradient-to-r">
       <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:py-16 lg:px-8">
