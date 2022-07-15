@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import Menu from "../components/menu";
 import Newsletter from "../components/newsletter";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import { Toaster } from "react-hot-toast";
 
 function MyApp({ Component, pageProps }) {
@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Menu {...pageProps} />
       <Component {...pageProps} />
-      {/* <Newsletter {...pageProps} /> */}
+      <Newsletter {...pageProps} />
       <Footer />
       <Toaster position="bottom-right" />
     </>
