@@ -79,12 +79,12 @@ export default function Footer() {
   const router = useRouter();
 
   return (
-    <footer className="bg-zinc-800">
+    <footer className="bg-zinc-900">
       <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
         <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
           {navigation.main.map(item => (
             <div key={item.name} className="px-5 py-2">
-              <a href={item.href} className="text-base text-zinc-100 hover:text-zinc-100">
+              <a href={item.href} className="text-base text-white hover:text-zinc-100">
                 {item.name}
               </a>
             </div>
@@ -101,7 +101,7 @@ export default function Footer() {
         <p className="mt-8 text-center">
           {router.locale == "en" && (
             <Link href={router.route} locale="fr">
-              <a className="flex items-center justify-center gap-2 text-white decoration-teal-500 decoration-4 underline-offset-2 transition hover:underline">
+              <a className="flex items-center justify-center gap-2 font-black text-white decoration-teal-500 decoration-4 underline-offset-2 transition hover:underline">
                 Français{" "}
                 <span>
                   <svg
@@ -118,7 +118,7 @@ export default function Footer() {
           )}
           {router.locale == "fr" && (
             <Link href={router.route} locale="en">
-              <a className="flex items-center justify-center gap-2 text-white decoration-teal-500 decoration-4 underline-offset-2 transition hover:underline">
+              <a className="flex items-center justify-center gap-2 font-black text-white decoration-teal-500 decoration-4 underline-offset-2 transition hover:underline">
                 English{" "}
                 <span>
                   <svg
