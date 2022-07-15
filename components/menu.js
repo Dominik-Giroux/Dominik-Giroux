@@ -16,8 +16,8 @@ export default function Menu({ context, menu }) {
                   className="to-white-400 overflow-hidden rounded-full bg-gradient-to-br from-teal-400 to-purple-400 hover:cursor-pointer"
                   src={Avatar}
                   alt="Dominik Giroux"
-                  width={150}
-                  height={150}
+                  width={120}
+                  height={120}
                   layout="responsive"
                   priority
                 />
