@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Peertracks from "../../public/img/clients/peertracks.png";
-import SounDAC from "../../public/img/clients/soundac.png";
-import IndustrieLassonde from "../../public/img/clients/industrie-lassonde.png";
-import WoltersKluwer from "../../public/img/clients/wolters-kluwer.png";
+import Peertracks from "/public/img/clients/peertracks.png";
+import SounDAC from "/public/img/clients/soundac.png";
+import IndustrieLassonde from "/public/img/clients/industrie-lassonde.png";
+import WoltersKluwer from "/public/img/clients/wolters-kluwer.png";
 
 export default function Clients({ context }) {
   const title = {
