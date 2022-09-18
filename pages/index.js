@@ -3,7 +3,9 @@ import { getMenu } from "../libs/menus";
 import { getPage } from "../libs/pages";
 import { getSection } from "../libs/sections";
 import Hero from "../components/sections/hero";
-import ServicesList from "../components/sections/servicesList";
+import Title from "../components/sections/title";
+import IconsList from "../components/sections/iconsList";
+import Clients from "../components/sections/clients";
 
 export default function Home({ context, menu, page, sections }) {
   return (
@@ -16,9 +18,11 @@ export default function Home({ context, menu, page, sections }) {
         <link rel="alternate" hreflang="fr" href="/fr" /> */}
       </Head>
 
-      <main className="relative animate-slideTop py-8 text-center">
+      <main className="relative animate-slideTop text-center">
         <Hero context={context} hero={sections.hero} />
-        <ServicesList context={context} servicesList={sections.servicesList} />
+        <Title context={context} title={sections.title} />
+        <IconsList context={context} list={sections.iconsList} />
+        <Clients context={context} />
       </main>
     </>
   );
@@ -28,10 +32,12 @@ export async function getStaticProps(context) {
   const menu = await getMenu("main");
   const page = await getPage("home");
   const hero = await getSection("hero");
-  const servicesList = await getSection("servicesList");
+  const title = await getSection("title");
+  const iconsList = await getSection("iconsList");
   const sections = {
     hero,
-    servicesList
+    title,
+    iconsList
   };
 
   return {

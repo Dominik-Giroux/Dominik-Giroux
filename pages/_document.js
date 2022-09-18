@@ -11,8 +11,6 @@ class MyDocument extends Document {
           />
         </Head>
         <body className="relative">
-          {/* <div className="absolute -top-48 -z-10 h-[100vh] w-full animate-tilt rounded-full bg-gradient-to-br from-teal-500 to-purple-500  blur-lg"></div> */}
-          {/* <div className="absolute -top- right-0 -z-10 mx-auto h-2/4 w-full max-w-7xl animate-tilt rounded-full bg-gradient-to-r from-teal-500 to-purple-500 py-12 blur-2xl"></div> */}
           <Main />
           <NextScript />
         </body>

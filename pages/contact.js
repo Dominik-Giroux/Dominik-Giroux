@@ -1,9 +1,11 @@
 import Head from "next/head";
+import Title from "../components/sections/title";
 import { getMenu } from "../libs/menus";
 import { getPage } from "../libs/pages";
+import { getSection } from "../libs/sections";
 import { useState } from "react";
 
-export default function Home({ context, menu, page }) {
+export default function Home({ context, menu, page, sections }) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
@@ -18,7 +20,12 @@ export default function Home({ context, menu, page }) {
       </Head>
 
       <main className="animate-slideIn py-8 text-center">
-        <section className="section-container relative my-8 flex  flex-col items-center justify-center gap-4 py-16 text-center">
+        <section className="relative mx-auto my-8 flex animate-fadeIn flex-col items-center justify-center gap-4 bg-gradient-to-r from-teal-500  to-purple-500 py-16 pb-[200px] text-center xl:pb-[250px]">
+          <div className="absolute top-0 z-10 h-24 w-full">
+            <svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+          </div>
           <h1 className="max-w-2x mx-auto text-5xl font-black text-white drop-shadow-lg">
             {page.title[context.locale]}
           </h1>
@@ -91,8 +98,18 @@ export default function Home({ context, menu, page }) {
               Send
             </button>
           </form>
-          <div className="absolute inset-0 -z-10 mx-auto h-auto w-full max-w-4xl animate-tilt rounded-full bg-gradient-to-r from-teal-500 to-purple-500 py-12 blur-2xl"></div>
+          <div className="h-150 absolute bottom-0 z-10 w-full">
+            <svg
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1200 120"
+              preserveAspectRatio="none"
+              fill="white">
+              <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
+            </svg>
+          </div>
         </section>
+        <Title context={context} title={sections.title} />
       </main>
     </>
   );
@@ -101,11 +118,16 @@ export default function Home({ context, menu, page }) {
 export async function getStaticProps(context) {
   const menu = await getMenu("main");
   const page = await getPage("contact");
+  const title = await getSection("contactTitle");
+  const sections = {
+    title
+  };
   return {
     props: {
       context,
       menu,
-      page
+      page,
+      sections
     }
   };
 }

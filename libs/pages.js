@@ -1,33 +1,3 @@
-// import { doc, getDoc, getDocs, addDoc, updateDoc, deleteDoc, collection, query, orderBy, setDoc } from "firebase/firestore";
-// import { db } from "./firebase";
-
-// export const getPages = async () => {
-//   return (await getDocs(query(collection(db, "pages"), orderBy("displayname")))).docs.map(snap => {
-//     return snap.data();
-//   });
-// };
-
-// export const getPage = async id => {
-//   const snap = await getDoc(doc(db, `pages/${id}`));
-//   return snap.data();
-// };
-
-// export const addPage = async page => {
-//   return await addDoc(collection(db, `pages`), page);
-// };
-
-// export const updatePage = async page => {
-//   return await updateDoc(doc(db, `pages/${page.id}`), page);
-// };
-
-// export const setPage = async page => {
-//   return await setDoc(doc(db, `pages/${page.uid}`), page);
-// };
-
-// export const deletePage = async id => {
-//   return await deleteDoc(doc(db, `pages/${id}`));
-// };
-
 const pages = {
   home: {
     url: {
@@ -51,6 +21,20 @@ const pages = {
     title: {
       en: "About",
       fr: "À propos"
+    },
+    description: {
+      en: "",
+      fr: ""
+    }
+  },
+  caseStudies: {
+    url: {
+      en: "case-studies",
+      fr: "etudes-de-cas"
+    },
+    title: {
+      en: "Case studies",
+      fr: "Études de cas"
     },
     description: {
       en: "",

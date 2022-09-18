@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function ServicesList({ context, servicesList }) {
   return (
-    <section id="services" className="section-container">
+    <section id="services" className="mx-auto max-w-7xl animate-fadeIn pb-16">
       <h1 className="max-w-2x mx-auto text-4xl font-black text-zinc-600">{servicesList.title[context.locale]}</h1>
       <div className="mt-12 grid grid-cols-1 gap-10 xl:grid-cols-3 xl:gap-8">
         {servicesList.services.map((service, i) => (

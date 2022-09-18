@@ -1,10 +1,8 @@
 import Head from "next/head";
-import IconsList from "../components/sections/iconsList";
 import { getMenu } from "../libs/menus";
 import { getPage } from "../libs/pages";
-import { getSection } from "../libs/sections";
 
-export default function Home({ context, menu, page, sections }) {
+export default function CaseStudies({ context, menu, page }) {
   return (
     <>
       <Head>
@@ -16,12 +14,12 @@ export default function Home({ context, menu, page, sections }) {
       </Head>
 
       <main className="text-center">
-        <section className="mx-auto max-w-7xl py-8">
-          <h1 className="animate-fadeIn bg-gradient-to-l from-teal-500 to-purple-500 bg-clip-text text-6xl font-extrabold text-transparent">
+        <section className="mx-auto max-w-7xl animate-fadeIn pb-16">
+          <h1 className="bg-gradient-to-l from-teal-500 to-purple-500 bg-clip-text py-16 text-6xl font-extrabold text-transparent">
             {page.title[context.locale]}
           </h1>
+          <p className="font-black text-zinc-600">{context.locale == "en" ? "Comming soon" : "Bientot disponible"}</p>
         </section>
-        <IconsList context={context} list={sections.iconsList} />
       </main>
     </>
   );
@@ -29,18 +27,12 @@ export default function Home({ context, menu, page, sections }) {
 
 export async function getStaticProps(context) {
   const menu = await getMenu("main");
-  const page = await getPage("services");
-  const iconsList = await getSection("iconsList");
-  const sections = {
-    iconsList
-  };
-
+  const page = await getPage("caseStudies");
   return {
     props: {
       context,
       menu,
-      page,
-      sections
+      page
     }
   };
 }

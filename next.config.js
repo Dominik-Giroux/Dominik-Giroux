@@ -13,12 +13,8 @@ const nextConfig = {
         destination: "/about"
       },
       {
-        source: "/blogue",
-        destination: "/blog"
-      },
-      {
-        source: "/politique-de-confidentialite",
-        destination: "/privacy-policy"
+        source: "/etudes-de-cas",
+        destination: "/case-studies"
       }
     ];
   }
