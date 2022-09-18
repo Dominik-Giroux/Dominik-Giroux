@@ -1,8 +1,4 @@
 import Image from "next/image";
-import Peertracks from "/public/img/clients/peertracks.png";
-import SounDAC from "/public/img/clients/soundac.png";
-import IndustrieLassonde from "/public/img/clients/industrie-lassonde.png";
-import WoltersKluwer from "/public/img/clients/wolters-kluwer.png";
 
 export default function Clients({ context }) {
   const title = {
@@ -28,10 +24,22 @@ export default function Clients({ context }) {
         </h1>
         <p className="text-lg font-black text-zinc-600">{intro[context.locale]}</p>
         <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
-          <Image src={Peertracks} alt="Peertracks" width={300} height={300} layout="responsive" />
-          <Image src={SounDAC} alt="SounDAC" width={300} height={300} layout="responsive" />
-          <Image src={IndustrieLassonde} alt="Industrie Lassonde" width={300} height={300} layout="responsive" />
-          <Image src={WoltersKluwer} alt="Wolters Kluwer" width={300} height={300} layout="responsive" />
+          <Image src="/img/clients/peertracks.png" alt="Peertracks" width={300} height={300} layout="responsive" />
+          <Image src="/img/clients/soundac.png" alt="SounDAC" width={300} height={300} layout="responsive" />
+          <Image
+            src="/img/clients/industrie-lassonde.png"
+            alt="Industrie Lassonde"
+            width={300}
+            height={300}
+            layout="responsive"
+          />
+          <Image
+            src="/img/clients/wolters-kluwer.png"
+            alt="Wolters Kluwer"
+            width={300}
+            height={300}
+            layout="responsive"
+          />
         </div>
         <p className="text-base font-thin text-zinc-600">{outtro[context.locale]}</p>
       </div>
