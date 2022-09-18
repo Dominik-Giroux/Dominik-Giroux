@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
       <Menu {...pageProps} />
       <Component {...pageProps} />
       <Newsletter {...pageProps} />
-      <Footer />
+      <Footer {...pageProps} />
       <Toaster position="bottom-right" />
     </>
   );
