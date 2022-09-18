@@ -6,7 +6,10 @@ import Hero from "../components/sections/hero";
 import Title from "../components/sections/title";
 import IconsList from "../components/sections/iconsList";
 import Clients from "../components/sections/clients";
-import Peertracks from "../public/img/clients/peertracks.png";
+// import Peertracks from "../public/static/img/peertracks.png";
+// import Soundac from "../public/static/img/soundac.png";
+// import IndustrieLassonde from "../public/static/img/industrie-lassonde.png";
+// import WoltersKluwer from "../public/static/img/wolters-kluwer.png";
 
 export default function Home({ context, menu, page, sections }) {
   const title = {
@@ -48,19 +51,19 @@ export async function getStaticProps(context) {
   const clients = [
     {
       alt: "Peertracks",
-      src: Peertracks
+      src: "/img/peertracks.png"
     },
     {
       alt: "SounDAC",
-      src: "/soundac.png"
+      src: "/img/soundac.png"
     },
     {
       alt: "Industrie Lassonde",
-      src: "/img/clients/industrie-lassonde.png"
+      src: "/img/industrie-lassonde.png"
     },
     {
       alt: "Wolfers Kluwer",
-      src: "/img/clients/wolters-kluwer.png"
+      src: "/img/wolters-kluwer.png"
     }
   ];
   const sections = {
