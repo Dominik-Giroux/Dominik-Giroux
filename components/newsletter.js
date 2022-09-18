@@ -1,3 +1,5 @@
+import React, { useRef, useState } from "react";
+
 const newsletter = {
   title: {
     en: "Newsletter",
@@ -26,6 +28,39 @@ const newsletter = {
 };
 
 export default function Newsletter({ context }) {
+  // 1. Create a reference to the input so we can fetch/clear it's value.
+  const emailRef = useRef(null);
+  // 2. Hold a message in state to handle the response from our API.
+  const [message, setMessage] = useState("");
+
+  const subscribe = async e => {
+    e.preventDefault();
+
+    // 3. Send a request to our API with the user's email address.
+    const res = await fetch("/api/subscribe", {
+      body: JSON.stringify({
+        email: emailRef.current.value
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
+
+    const { error } = await res.json();
+
+    if (error) {
+      // 4. If there was an error, update the message in state.
+      setMessage(error);
+
+      return;
+    }
+
+    // 5. Clear the input value and show a success message.
+    emailRef.current.value = "";
+    setMessage("Success! 🎉 You are now subscribed to the newsletter.");
+  };
+
   return (
     <div className="bg-gradient-to-r from-blue-500 to-pink-400 md:bg-gradient-to-r">
       <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:py-16 lg:px-8">
@@ -36,12 +71,13 @@ export default function Newsletter({ context }) {
           <p className="mt-3 max-w-3xl text-lg leading-6 text-zinc-100">{newsletter.description[context.locale]}</p>
         </div>
         <div className="mt-8 lg:mt-0 lg:ml-8">
-          <form action="" method="post" className="sm:flex">
-            <label htmlFor="email" className="sr-only">
+          <form onSubmit={subscribe} className="sm:flex">
+            <label htmlFor="email-input" className="sr-only">
               {newsletter.form.email.label[context.locale]}
             </label>
             <input
-              id="email"
+              ref={emailRef}
+              id="email-input"
               name="email"
               type="email"
               autoComplete="email"
@@ -57,6 +93,7 @@ export default function Newsletter({ context }) {
               </button>
             </div>
           </form>
+          <div className="mt-2 text-white">{message ? message : ``}</div>
         </div>
       </div>
     </div>
