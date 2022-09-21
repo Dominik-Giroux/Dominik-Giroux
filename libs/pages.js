@@ -16,7 +16,7 @@ const pages = {
   about: {
     url: {
       en: "about",
-      fr: "a-propos"
+      fr: "about"
     },
     title: {
       en: "About",
@@ -30,7 +30,7 @@ const pages = {
   caseStudies: {
     url: {
       en: "case-studies",
-      fr: "etudes-de-cas"
+      fr: "case-studies"
     },
     title: {
       en: "Case studies",

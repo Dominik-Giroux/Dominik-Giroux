@@ -20,7 +20,7 @@ const navigation = {
       },
       url: {
         en: "about",
-        fr: "a-propos"
+        fr: "about"
       }
     },
     {
@@ -40,7 +40,7 @@ const navigation = {
       },
       url: {
         en: "case-studies",
-        fr: "etudes-de-cas"
+        fr: "case-studies"
       }
     },
     {
@@ -89,9 +89,14 @@ export default function Footer({ context }) {
         <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
           {navigation.main.map(item => (
             <div key={item.name[context.locale]} className="px-5 py-2">
-              <a href={item.url[context.locale]} className="text-base text-white hover:text-zinc-100">
-                {item.name[context.locale]}
-              </a>
+              <Link href={item.url[context.locale] ? item.url[context.locale] : "/"}>
+                <a
+                  className={`nav-link ${
+                    `/${item.url[context.locale]}` == router.asPath ? "underline" : ""
+                  } text-base text-white hover:text-zinc-100`}>
+                  {item.name[context.locale]}
+                </a>
+              </Link>
             </div>
           ))}
         </nav>

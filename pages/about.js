@@ -28,7 +28,7 @@ export async function getStaticProps(context) {
     },
     slug: {
       en: "/about",
-      fr: "/a-propos"
+      fr: "/about"
     }
   };
   const menu = await getMenu("main");

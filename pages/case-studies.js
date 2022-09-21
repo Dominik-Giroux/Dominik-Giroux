@@ -28,7 +28,7 @@ export async function getStaticProps(context) {
     },
     slug: {
       en: "/case-studies",
-      fr: "/etudes-de-cas"
+      fr: "/case-studies"
     }
   };
   const menu = await getMenu("main");

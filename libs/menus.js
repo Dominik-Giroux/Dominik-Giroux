@@ -19,7 +19,7 @@ export const getMenu = async id => {
           },
           url: {
             en: "about",
-            fr: "a-propos"
+            fr: "about"
           }
         },
         {
@@ -39,7 +39,7 @@ export const getMenu = async id => {
           },
           url: {
             en: "case-studies",
-            fr: "etudes-de-cas"
+            fr: "case-studies"
           }
         },
         {
