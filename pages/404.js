@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getMenu } from "../libs/menus";
 
-export default function Error({ context, menu }) {
+export default function Error({}) {
   return (
     <div
       className="min-h-full bg-cover bg-top sm:bg-top"
@@ -30,10 +30,22 @@ export default function Error({ context, menu }) {
 }
 
 export async function getStaticProps(context) {
+  const meta = {
+    title: {
+      en: "Error 404",
+      fr: "Erreure 404"
+    },
+    description: {
+      en: "Page not found",
+      fr: "Page non trouvée"
+    },
+    error: true
+  };
   const menu = await getMenu("main");
   return {
     props: {
       context,
+      meta,
       menu
     }
   };
