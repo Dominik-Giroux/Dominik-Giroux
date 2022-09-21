@@ -1,7 +1,7 @@
 import { app, firestore } from "firebase-admin";
 import { cert, initializeApp } from "firebase-admin/app";
 
-if (app.length === 0) {
+if (process.env.NODE_ENV === "development") {
   initializeApp({
     credential: cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY))
   });
