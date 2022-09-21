@@ -3,13 +3,57 @@ import Title from "../components/sections/title";
 import { getMenu } from "../libs/menus";
 import { getPage } from "../libs/pages";
 import { getSection } from "../libs/sections";
-import { useState } from "react";
+import { useRef, useState } from "react";
+
+const submitBtn = {
+  en: "Submit",
+  fr: "Envoyer"
+};
+
+const success = {
+  en: "Your message has been sent successfully.",
+  fr: "Votre message a été envoyé avec succès."
+};
 
 export default function Home({ context, menu, page, sections }) {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [company, setCompany] = useState("");
-  const [mesasge, setMessage] = useState("");
+  const emailRef = useRef(null);
+  const nameRef = useRef(null);
+  const companyRef = useRef(null);
+  const messageRef = useRef(null);
+  const [response, setResponse] = useState("");
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    const body = JSON.stringify({
+      email: emailRef.current.value,
+      name: nameRef.current.value,
+      company: companyRef.current.value,
+      message: messageRef.current.value
+    });
+
+    const res = await fetch("/api/contact", {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      body
+    });
+
+    const { error } = await res.json();
+
+    if (error) {
+      setResponse(error[context.locale]);
+      return;
+    }
+
+    // Reset Form
+    emailRef.current.value = "";
+    nameRef.current.value = "";
+    companyRef.current.value = "";
+    messageRef.current.value = "";
+    setResponse(success[context.locale]);
+  };
 
   return (
     <>
@@ -35,70 +79,40 @@ export default function Home({ context, menu, page, sections }) {
             {page.description[context.locale]}
           </p>
           <form
-            onSubmit={async event => await handleSubmit(event)}
+            onSubmit={handleSubmit}
             className="backdrop-blur-xs flex w-auto flex-col gap-4 rounded bg-zinc-100 bg-opacity-40 p-8 shadow lg:min-w-[600px] ">
             <div className="flex flex-row gap-4">
               <div className="flex flex-grow flex-col gap-2">
                 <label className="label" htmlFor="name">
                   Your name <span className="text-red-500">*</span>
                 </label>
-                <input
-                  className="input"
-                  name="name"
-                  id="name"
-                  type="text"
-                  value={name}
-                  onChange={event => setFirstname(event.target.value)}
-                  required
-                />
+                <input ref={nameRef} className="input" name="name" id="name" type="text" required />
               </div>
               <div className="flex flex-grow flex-col gap-2">
                 <label className="label" htmlFor="company">
-                  Company <span className="text-red-500">*</span>
+                  Company
                 </label>
-                <input
-                  className="input"
-                  name="company"
-                  id="company"
-                  type="text"
-                  value={company}
-                  onChange={event => setLastname(event.target.value)}
-                  required
-                />
+                <input ref={companyRef} className="input" name="company" id="company" type="text" />
               </div>
             </div>
             <div className="flex flex-grow flex-col gap-2">
               <label className="label" htmlFor="email">
                 Email <span className="text-red-500">*</span>
               </label>
-              <input
-                className="input"
-                name="email"
-                id="email"
-                type="email"
-                value={email}
-                onChange={event => setEmail(event.target.value)}
-                required
-              />
+              <input ref={emailRef} className="input" name="email" id="email" type="email" required />
             </div>
             <div className="flex flex-grow flex-col gap-2">
               <label className="label" htmlFor="email">
                 Message <span className="text-red-500">*</span>
               </label>
-              <textarea
-                className="input"
-                name="message"
-                id="message"
-                value={email}
-                onChange={event => setMessage(event.target.value)}
-                required
-              />
+              <textarea ref={messageRef} className="input" name="message" id="message" required />
             </div>
             <button
               className="rounded-xl border bg-gradient-to-br from-purple-500 to-pink-400 py-2 font-black text-white shadow-lg"
               type="submit">
-              Send
+              {submitBtn[context.locale]}
             </button>
+            <div className="mt-2 text-zinc-900">{response ? response : ``}</div>
           </form>
           <div className="h-150 absolute bottom-0 z-10 w-full">
             <svg
