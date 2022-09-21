@@ -43,7 +43,7 @@ export default function Home({ context, menu, page, sections }) {
     const { error } = await res.json();
 
     if (error) {
-      setResponse(error[context.locale]);
+      setResponse(error[context.locale] ? error[context.locale] : error);
       return;
     }
 
