@@ -13,7 +13,7 @@ export default function Meta({ context, meta }) {
           fr: "Dominik Giroux est un expert en marketing numérique et web designer basé à Montréal, Canada."
         }
       };
-  const domain = process.env.NODE_ENV === "development" ? "http://localhost:3000" : process.env.DOMAIN;
+  const domain = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https:///www.dominikgiroux.com";
   const lang = context.locale != context.defaultLocale ? `/${context.locale}` : "";
   return (
     <Head>
