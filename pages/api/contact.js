@@ -1,11 +1,11 @@
 import { app, firestore } from "firebase-admin";
 import { cert, initializeApp } from "firebase-admin/app";
 
-if (process.env.NODE_ENV === "development") {
-  initializeApp({
-    credential: cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY))
-  });
-}
+// if (process.env.NODE_ENV === "development") {
+initializeApp({
+  credential: cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY))
+});
+// }
 
 export default async function handler(req, res) {
   let { email, name, company, message } = req.body;
