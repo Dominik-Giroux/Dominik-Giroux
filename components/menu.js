@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 export default function Menu({ context, menu }) {
   const router = useRouter();
   return (
-    <header className="animate-slideTop bg-transparent text-xl font-black">
+    <header className="bg-transparent text-xl font-black">
       <nav className="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-4 py-4 sm:px-6 lg:flex-row xl:gap-6">
         <Link href="/">
           <a className="relative mx-auto ml-auto overflow-hidden rounded-full border-2 border-teal-400 lg:mx-0">
@@ -26,7 +26,7 @@ export default function Menu({ context, menu }) {
         <ul className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           {menu.links.map((link, i) => (
             <li key={`link-${i}`}>
-              <Link href={link.url[context.locale] ? link.url[context.locale] : "/"}>
+              <Link href={link.url[context.locale]}>
                 <a className={`nav-link ${`/${link.url[context.locale]}` == router.asPath ? "underline" : ""}`}>
                   {link.name[context.locale]}
                 </a>
@@ -35,7 +35,7 @@ export default function Menu({ context, menu }) {
           ))}
         </ul>
         {router.locale == "en" && (
-          <Link href={router.route} locale="fr">
+          <Link href={router.asPath} locale="fr">
             <a className="nav-link flex items-center justify-center gap-2 hover:underline">
               Français{" "}
               <span className="text-purple-400">
@@ -47,7 +47,7 @@ export default function Menu({ context, menu }) {
           </Link>
         )}
         {router.locale == "fr" && (
-          <Link href={router.route} locale="en">
+          <Link href={router.asPath} locale="en">
             <a className="nav-link flex items-center justify-center gap-2 hover:underline">
               English{" "}
               <span className="text-purple-400">

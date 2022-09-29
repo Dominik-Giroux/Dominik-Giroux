@@ -19,7 +19,7 @@ const hero = {
   }
 };
 
-const title = {
+const heading = {
   subheading: {
     en: "With more than 10 years of experience in web development and digital marketing",
     fr: "Avec plus de 10 ans d'expérience dans le développement web et marketing numérique"
@@ -214,27 +214,27 @@ const servicesList = {
   ]
 };
 
-const contactTitle = {
+const contactHeading = {
   subheading: {
     en: "With more than 10 years of experience in web development and digital marketing",
     fr: "Avec plus de 10 ans d'expérience dans le développement web et marketing numérique"
   },
   heading: {
-    en: "Let's work together and unleash the true potential of your business",
-    fr: "Associons-nous et libérons le véritable potentiel de votre entreprise"
+    en: "Let's work together to unleash your business true potential",
+    fr: "Travaillons ensemble pour libérer le plein potentiel de votre entreprise"
   },
   description: {
-    en: "Together we can create web solutions that will allow you to develop your full potential and reach the ✨",
-    fr: "Ensemble nous pouvons créer des solutions web qui vous permettront de développer votre pleins potentiel et atteindre les ✨"
+    en: "Together, Let's create tailored web solutions to reach unprecedented goals ✨",
+    fr: "Ensemble nous pouvons créer des solutions web qui vous permettront d'atteindre des résultats spectaculaires ✨"
   }
 };
 
 const sections = {
   hero,
-  title,
+  heading,
   iconsList,
   servicesList,
-  contactTitle
+  contactHeading
 };
 
 export const getSection = async id => {

@@ -8,18 +8,18 @@ export const getMenu = async id => {
             fr: "Accueil"
           },
           url: {
-            en: "",
-            fr: ""
+            en: "/",
+            fr: "/"
           }
         },
         {
           name: {
-            en: "About",
-            fr: "À propos"
+            en: "Blog",
+            fr: "Blog"
           },
           url: {
-            en: "about",
-            fr: "about"
+            en: "/blog",
+            fr: "/blog"
           }
         },
         {
@@ -28,8 +28,8 @@ export const getMenu = async id => {
             fr: "Services"
           },
           url: {
-            en: "services",
-            fr: "services"
+            en: "/services",
+            fr: "/services"
           }
         },
         {
@@ -38,8 +38,8 @@ export const getMenu = async id => {
             fr: "Études de cas"
           },
           url: {
-            en: "case-studies",
-            fr: "case-studies"
+            en: "/case-studies",
+            fr: "/case-studies"
           }
         },
         {
@@ -48,8 +48,8 @@ export const getMenu = async id => {
             fr: "Contact"
           },
           url: {
-            en: "contact",
-            fr: "contact"
+            en: "/contact",
+            fr: "/contact"
           }
         }
       ]

@@ -15,12 +15,12 @@ const navigation = {
     },
     {
       name: {
-        en: "About",
-        fr: "À propos"
+        en: "Blog",
+        fr: "Blog"
       },
       url: {
-        en: "about",
-        fr: "about"
+        en: "/blog",
+        fr: "/blog"
       }
     },
     {

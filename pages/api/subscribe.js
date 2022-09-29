@@ -5,7 +5,7 @@ mailchimp.setConfig({
   server: process.env.MAILCHIMP_API_SERVER
 });
 
-export default async (req, res) => {
+export default async function handler(req, res) {
   const { email } = req.body;
 
   if (!email) {
@@ -22,4 +22,4 @@ export default async (req, res) => {
   } catch (error) {
     return res.status(500).json({ error: error.message || error.toString() });
   }
-};
+}

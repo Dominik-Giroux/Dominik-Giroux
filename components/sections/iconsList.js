@@ -1,6 +1,6 @@
 export default function IconsList({ context, list }) {
   return (
-    <section className="animate-fadeIn pb-16">
+    <section className="pb-16">
       <div className="mx-auto grid min-w-0 max-w-7xl grid-cols-1 flex-row gap-8 px-4 sm:grid-cols-2 lg:grid-cols-3">
         {list.items.map((item, i) => (
           <div key={`icon-${i}`} className="p-4 text-center">

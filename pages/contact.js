@@ -1,6 +1,5 @@
-import Title from "../components/sections/title";
+import Heading from "../components/sections/Heading";
 import { getMenu } from "../libs/menus";
-import { getPage } from "../libs/pages";
 import { getSection } from "../libs/sections";
 import { useRef, useState } from "react";
 
@@ -14,7 +13,7 @@ const success = {
   fr: "Votre message a été envoyé avec succès."
 };
 
-export default function Home({ context, menu, page, sections }) {
+export default function Home({ context, title, description, sections }) {
   const emailRef = useRef(null);
   const nameRef = useRef(null);
   const companyRef = useRef(null);
@@ -56,19 +55,15 @@ export default function Home({ context, menu, page, sections }) {
 
   return (
     <>
-      <main className="animate-slideIn py-8 text-center">
-        <section className="relative mx-auto my-8 flex animate-fadeIn flex-col items-center justify-center gap-4 bg-gradient-to-r from-teal-500  to-purple-500 py-16 pb-[200px] text-center xl:pb-[250px]">
+      <main className="py-8 text-center">
+        <section className="relative mx-auto my-8 flex  flex-col items-center justify-center gap-4 bg-gradient-to-r from-teal-500  to-purple-500 py-16 pb-[200px] text-center xl:pb-[250px]">
           <div className="absolute top-0 z-10 h-24 w-full">
             <svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
               <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
             </svg>
           </div>
-          <h1 className="max-w-2x mx-auto text-5xl font-black text-white drop-shadow-lg">
-            {page.title[context.locale]}
-          </h1>
-          <p className="mx-auto max-w-xl text-xl font-semibold text-white drop-shadow-lg">
-            {page.description[context.locale]}
-          </p>
+          <h1 className="max-w-2x mx-auto text-5xl font-black text-white drop-shadow-lg">{title}</h1>
+          <p className="mx-auto max-w-xl text-xl font-semibold text-white drop-shadow-lg">{description}</p>
           <form
             onSubmit={handleSubmit}
             className="backdrop-blur-xs flex w-auto flex-col gap-4 rounded bg-zinc-100 bg-opacity-40 p-8 shadow lg:min-w-[600px] ">
@@ -116,7 +111,7 @@ export default function Home({ context, menu, page, sections }) {
             </svg>
           </div>
         </section>
-        <Title context={context} title={sections.title} />
+        <Heading context={context} heading={sections.heading} />
       </main>
     </>
   );
@@ -131,24 +126,21 @@ export async function getStaticProps(context) {
     description: {
       en: "Dominik Giroux is a digital marketing expert and web designer based in Montreal, Canada.",
       fr: "Dominik Giroux est un expert en marketing numérique et web designer basé à Montréal, Canada."
-    },
-    slug: {
-      en: "/contact",
-      fr: "/contact"
     }
   };
   const menu = await getMenu("main");
-  const page = await getPage("contact");
-  const title = await getSection("contactTitle");
+  const heading = await getSection("contactHeading");
   const sections = {
-    title
+    heading
+    // Tell me about your project and it'll be my pleasure to evaluate it for you
+    // Parlez-moi de votre projet et il me fera grand plaisir de l'évaluer
   };
   return {
     props: {
       context,
-      meta,
+      title: meta.title[context.locale],
+      description: meta.description[context.locale],
       menu,
-      page,
       sections
     }
   };
