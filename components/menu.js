@@ -3,7 +3,7 @@ import Image from "next/image";
 import Avatar from "../public/img/avatar.png";
 import { useRouter } from "next/router";
 
-export default function Menu({ context, menu }) {
+export default function Menu({ menu }) {
   const router = useRouter();
   return (
     <header className="bg-transparent text-xl font-black">
@@ -26,9 +26,9 @@ export default function Menu({ context, menu }) {
         <ul className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           {menu.links.map((link, i) => (
             <li key={`link-${i}`}>
-              <Link href={link.url[context.locale]}>
-                <a className={`nav-link ${`/${link.url[context.locale]}` == router.asPath ? "underline" : ""}`}>
-                  {link.name[context.locale]}
+              <Link href={link.url[router.locale]}>
+                <a className={`nav-link ${`/${link.url[router.locale]}` == router.asPath ? "underline" : ""}`}>
+                  {link.name[router.locale]}
                 </a>
               </Link>
             </li>

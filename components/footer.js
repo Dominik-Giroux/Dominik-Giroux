@@ -80,7 +80,7 @@ const navigation = {
   ]
 };
 
-export default function Footer({ context }) {
+export default function Footer() {
   const router = useRouter();
 
   return (
@@ -88,13 +88,13 @@ export default function Footer({ context }) {
       <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
         <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
           {navigation.main.map(item => (
-            <div key={item.name[context.locale]} className="px-5 py-2">
-              <Link href={item.url[context.locale] ? item.url[context.locale] : "/"}>
+            <div key={item.name[router.locale]} className="px-5 py-2">
+              <Link href={item.url[router.locale] ? item.url[router.locale] : "/"}>
                 <a
                   className={`nav-link ${
-                    `/${item.url[context.locale]}` == router.asPath ? "underline" : ""
+                    `/${item.url[router.locale]}` == router.asPath ? "underline" : ""
                   } text-base text-white hover:text-zinc-100`}>
-                  {item.name[context.locale]}
+                  {item.name[router.locale]}
                 </a>
               </Link>
             </div>
