@@ -35,7 +35,7 @@ export default function Post({ context, post }) {
           <div className="flex-shrink-0">
             <div className="h-20 w-20 overflow-hidden rounded-full">
               <span className="sr-only">{post.author}</span>
-              <Image src={post.authorImg} alt={post.author} width={150} height={150} />
+              <Image src={post.authorImg} alt={post.author} width={175} height={175} />
             </div>
           </div>
         )}
