@@ -5,7 +5,7 @@ export default function CaseStudies({ context, title }) {
     <>
       <main className="text-center">
         <section className="mx-auto max-w-7xl  pb-16">
-          <h1 className="bg-gradient-to-l from-teal-500 to-purple-500 bg-clip-text py-16 text-6xl font-extrabold text-transparent">
+          <h1 className="bg-gradient-to-l from-teal-500 to-purple-500 bg-clip-text py-16 text-3xl font-extrabold text-transparent md:text-6xl">
             {title}
           </h1>
           <p className="font-black text-zinc-600">{context.locale == "en" ? "Comming soon" : "Bientot disponible"}</p>
@@ -30,8 +30,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       context,
-      title: meta.title[context.locale],
-      description: meta.description[context.locale],
+      meta,
       menu
     }
   };

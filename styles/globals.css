@@ -21,3 +21,9 @@
     @apply text-zinc-600 decoration-teal-500 decoration-4 underline-offset-2 drop-shadow transition hover:text-zinc-500 hover:underline;
   }
 }
+
+@layer utilities {
+  .px-main {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+}

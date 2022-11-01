@@ -7,7 +7,7 @@ export default function Home({ context, title, sections }) {
     <>
       <main className="text-center">
         <section className="mx-auto max-w-7xl py-8">
-          <h1 className=" bg-gradient-to-l from-teal-500 to-purple-500 bg-clip-text text-6xl font-extrabold text-transparent">
+          <h1 className=" bg-gradient-to-l from-teal-500 to-purple-500 bg-clip-text text-3xl font-extrabold text-transparent md:text-6xl">
             {title}
           </h1>
         </section>
@@ -37,8 +37,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       context,
-      title: meta.title[context.locale],
-      description: meta.description[context.locale],
+      meta,
       menu,
       sections
     }

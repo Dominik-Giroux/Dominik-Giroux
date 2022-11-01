@@ -7,14 +7,12 @@ import Clients from "../components/sections/clients";
 
 export default function Home({ context, sections }) {
   return (
-    <>
-      <main className="relative text-center">
-        <Hero context={context} hero={sections.hero} />
-        <Heading context={context} heading={sections.heading} />
-        <IconsList context={context} list={sections.iconsList} />
-        <Clients context={context} clients={sections.clients} />
-      </main>
-    </>
+    <main>
+      <Hero context={context} hero={sections.hero} />
+      <Heading context={context} heading={sections.heading} />
+      <IconsList context={context} list={sections.iconsList} />
+      <Clients context={context} clients={sections.clients} />
+    </main>
   );
 }
 
@@ -57,8 +55,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       context,
-      title: meta.title[context.locale],
-      description: meta.description[context.locale],
+      meta,
       menu,
       sections
     }

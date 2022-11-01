@@ -7,50 +7,35 @@ export const getMenu = async id => {
             en: "Home",
             fr: "Accueil"
           },
-          url: {
-            en: "/",
-            fr: "/"
-          }
+          url: "/"
         },
         {
           name: {
             en: "Blog",
             fr: "Blog"
           },
-          url: {
-            en: "/blog",
-            fr: "/blog"
-          }
+          url: "/blog"
         },
         {
           name: {
             en: "Services",
             fr: "Services"
           },
-          url: {
-            en: "/services",
-            fr: "/services"
-          }
+          url: "/services"
         },
         {
           name: {
             en: "Case studies",
             fr: "Études de cas"
           },
-          url: {
-            en: "/case-studies",
-            fr: "/case-studies"
-          }
+          url: "/case-studies"
         },
         {
           name: {
             en: "Contact",
             fr: "Contact"
           },
-          url: {
-            en: "/contact",
-            fr: "/contact"
-          }
+          url: "/contact"
         }
       ]
     };

@@ -1,4 +1,5 @@
 ---
+slug: "bonjour-monde"
 title: "Bonjour le monde!"
 description: "Just a hello world page!"
 datetime: "2022-09-29T04:00:00.000Z"

@@ -66,8 +66,8 @@ export default function Home({ context, title, description, sections }) {
           <p className="mx-auto max-w-xl text-xl font-semibold text-white drop-shadow-lg">{description}</p>
           <form
             onSubmit={handleSubmit}
-            className="backdrop-blur-xs flex w-auto flex-col gap-4 rounded bg-zinc-100 bg-opacity-40 p-8 shadow lg:min-w-[600px] ">
-            <div className="flex flex-row gap-4">
+            className="backdrop-blur-xs flex w-full flex-col gap-4 rounded bg-zinc-100 bg-opacity-40 p-4 shadow md:w-auto md:p-8 lg:min-w-[600px] ">
+            <div className="flex flex-col gap-4 md:flex-row">
               <div className="flex flex-grow flex-col gap-2">
                 <label className="label" htmlFor="name">
                   Your name <span className="text-red-500">*</span>
@@ -124,22 +124,19 @@ export async function getStaticProps(context) {
       fr: "Contact"
     },
     description: {
-      en: "Dominik Giroux is a digital marketing expert and web designer based in Montreal, Canada.",
-      fr: "Dominik Giroux est un expert en marketing numérique et web designer basé à Montréal, Canada."
+      en: "Tell me more about your project and it'll be my pleasure to discuss it further with you.",
+      fr: "Dites-m'en plus sur votre projet et il me fera plaisir d'en discuter davantage avec vous."
     }
   };
   const menu = await getMenu("main");
   const heading = await getSection("contactHeading");
   const sections = {
     heading
-    // Tell me about your project and it'll be my pleasure to evaluate it for you
-    // Parlez-moi de votre projet et il me fera grand plaisir de l'évaluer
   };
   return {
     props: {
       context,
-      title: meta.title[context.locale],
-      description: meta.description[context.locale],
+      meta,
       menu,
       sections
     }

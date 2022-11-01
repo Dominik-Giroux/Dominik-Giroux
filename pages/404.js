@@ -9,7 +9,7 @@ export default function Error({ context, sections }) {
         backgroundImage:
           'url("https://images.unsplash.com/photo-1545972154-9bb223aac798?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3050&q=80&exp=8&con=-15&sat=-75")'
       }}>
-      <div className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-8 lg:py-48">
+      <div className="px-main mx-auto max-w-7xl py-16 text-center sm:py-24 lg:py-48">
         <p className="text-sm font-semibold uppercase tracking-wide text-black text-opacity-50">
           {sections.title[context.locale]}
         </p>
@@ -18,10 +18,10 @@ export default function Error({ context, sections }) {
         </h1>
         <p className="mt-2 text-lg font-medium text-black text-opacity-50">{sections.subheading[context.locale]}</p>
         <div className="mt-6">
-          <Link href="/">
-            <a className="inline-flex items-center rounded-md border border-transparent bg-white bg-opacity-75 px-4 py-2 text-sm font-medium text-black text-opacity-75 sm:bg-opacity-25 sm:hover:bg-opacity-50">
-              {sections.link[context.locale]}
-            </a>
+          <Link
+            href="/"
+            className="inline-flex items-center rounded-md border border-transparent bg-white bg-opacity-75 px-4 py-2 text-sm font-medium text-black text-opacity-75 sm:bg-opacity-25 sm:hover:bg-opacity-50">
+            {sections.link[context.locale]}
           </Link>
         </div>
       </div>
@@ -62,8 +62,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       context,
-      title: meta.title[context.locale],
-      description: meta.description[context.locale],
+      meta,
       menu,
       sections
     }

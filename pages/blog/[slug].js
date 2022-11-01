@@ -17,7 +17,6 @@ export default function Post({ context, post }) {
           alt={post.title}
           width={1200}
           height={500}
-          layout="responsive"
           priority
         />
 
@@ -30,21 +29,21 @@ export default function Post({ context, post }) {
         )}
 
         <article className="" dangerouslySetInnerHTML={{ __html: post.content }}></article>
-        <div className="mt-10 flex flex-col items-center justify-center">
-          {post.author && post.authorImg && (
-            <div className="flex-shrink-0">
-              <div className="h-20 w-20 overflow-hidden rounded-full">
-                <span className="sr-only">{post.author}</span>
-                <Image src={post.authorImg} alt={post.author} width={150} height={150} />
-              </div>
+      </section>
+      <section className="mt-10 flex flex-col items-center justify-center">
+        {post.author && post.authorImg && (
+          <div className="flex-shrink-0">
+            <div className="h-20 w-20 overflow-hidden rounded-full">
+              <span className="sr-only">{post.author}</span>
+              <Image src={post.authorImg} alt={post.author} width={150} height={150} />
             </div>
-          )}
-          {post.author && (
-            <p className="bg-gradient-to-tr from-teal-500 to-purple-500 bg-clip-text text-sm font-bold text-transparent">
-              {post.author}
-            </p>
-          )}
-        </div>
+          </div>
+        )}
+        {post.author && (
+          <p className="mt-2 bg-gradient-to-tr from-teal-500 to-purple-500 bg-clip-text text-sm font-bold text-transparent">
+            {post.author}
+          </p>
+        )}
       </section>
     </main>
   );
@@ -59,15 +58,14 @@ export async function getStaticPaths({ locales, defaultLocale }) {
 
 export async function getStaticProps({ locale, params }) {
   const post = await getPost({ slug: params.slug, locale });
-  const { title, description } = post;
+  const meta = { title: post.title, description: post.description };
   const menu = await getMenu("main");
   const context = { locale, params };
   return {
     props: {
       context,
       menu,
-      title,
-      description,
+      meta,
       post
     }
   };

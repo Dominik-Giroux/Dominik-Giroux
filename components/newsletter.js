@@ -65,7 +65,7 @@ export default function Newsletter({ context }) {
 
   return (
     <div className="bg-gradient-to-r from-blue-500 to-pink-400 md:bg-gradient-to-r">
-      <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:py-16 lg:px-8">
+      <div className="px-main mx-auto max-w-7xl py-12 lg:flex lg:items-center lg:py-16">
         <div className="lg:w-0 lg:flex-1">
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl" id="newsletter-headline">
             {newsletter.title[router.locale]}
